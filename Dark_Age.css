@@ -634,10 +634,38 @@ span[data-tag="pro"], span[data-tag="p"] {
     color: #00ee6b !important;
 }
 
+span[data-link-title="pro"] span, span[data-link-title="p"] span, span[data-link-title="+"] span{
+    background: #00ee6b !important;
+    padding: 1px 5px;
+    border-radius: 150px;
+    font-weight: 600;
+    color: #26272a !important;
+    text-transform: uppercase;
+    font-family: Courier New;
+    transition: background 2s ease;
+}
+
+span[data-link-title="con"] span, span[data-link-title="c"] span, span[data-link-title="-"] span{
+    background: #ee4f00 !important;
+    padding: 1px 5px;
+    border-radius: 150px;
+    font-weight: 600;
+    color: #26272a !important;
+    text-transform: uppercase;
+    font-family: Courier New;
+    transition: background 1s ease;
+}
+
+
+span[data-link-title="pro"] span:hover, span[data-link-title="p"] span:hover, span[data-link-title="+"] span:hover, span[data-link-title="con"] span:hover, span[data-link-title="c"] span:hover, span[data-link-title="-"] span:hover {
+    color: #26272a !important;
+    background: #d4d4d4 !important;
+    transition: background .3s ease;
+}
+
 span[data-tag="con"], span[data-tag="c"] {
     color: #ee4f00 !important;
 }
-
 span[data-tag="choice"] {
     color: #EEAA00 !important;
 }
