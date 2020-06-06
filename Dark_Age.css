@@ -32,7 +32,7 @@
 /*/////////////////////////////////////*/
 
 /* MAIN BACKGROUND COLOR */
-.roam-body-main {
+body, .roam-body-main {
     background-color: #26272a;
 }
 
@@ -191,6 +191,34 @@ span {
     transition: color .3s ease, border .3s ease;
     border-bottom: 1px solid rgba(255, 152, 0, .6);
 }
+
+/* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
+
+.rm-page-ref-namespace-color {
+    color: #65bf38;
+    font-weight: 600;
+    transition: color .3s ease;
+}
+
+.rm-page-ref-namespace-color:hover {
+    color: #ee6b00;
+    text-decoration: none;
+    transition: color .3s ease;
+}
+
+
+/* Highlights */
+
+.roam-highlight {
+    color: #d8dadb;
+    background-color: #3b5e39;
+}
+
+.block-highlight-yellow {
+    background: #6e6b5e8c !important;
+
+}
+
 /*///////////////////////////*/
 /*                           */
 /*     Reference Section     */
@@ -246,21 +274,6 @@ span {
     color: #65bf38 !important;
 }
 
-/*///////////////////*/
-/*                   */
-/*     Highlights    */
-/*                   */
-/*///////////////////*/
-
-.roam-highlight {
-    color: #d8dadb;
-    background-color: #3b5e39;
-}
-
-.block-highlight-yellow {
-    background: #6e6b5e8c !important;
-
-}
 
 /*///////////////////////////////////*/
 /*                                   */
@@ -341,26 +354,6 @@ code {
     padding-right: 15px !important;
 }
 
-
-/*///////////////////////////*/
-/*                           */
-/*     Namespace Styling     */
-/*                           */
-/*///////////////////////////*/
-
-/* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
-
-.rm-page-ref-namespace-color {
-    color: #65bf38;
-    font-weight: 600;
-    transition: color .3s ease;
-}
-
-.rm-page-ref-namespace-color:hover {
-    color: #ee6b00;
-    text-decoration: none;
-    transition: color .3s ease;
-}
 
 /*/////////////////////////////////////*/
 /*                                     */
@@ -768,4 +761,7 @@ span[style*="color: rgb(14, 90, 138);"] {
     opacity: .4;
 }
 
-
+/* Astrolabe */
+.loading-astrolabe {
+    content:url("https://i.imgur.com/ucITJk7.gif");
+}
