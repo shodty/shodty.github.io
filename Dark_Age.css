@@ -117,8 +117,8 @@ a {
     transition: color .3s ease;
 }
 
-/* Interal Roam Links [[Roam]] & #Roam & #[[Roam]] */
-.rm-page-ref-tag, .rm-page-ref-link-color, .rm-ref-page-view-title a, .bp3-text-overflow-ellipsis a, .rm-pages-title-text strong {
+/* Internal Roam Links [[Roam]] & #Roam & #[[Roam]] */
+.rm-page-ref-tag, .rm-page-ref-link-color, .rm-ref-page-view-title a, .bp3-text-overflow-ellipsis a, .rm-pages-title-text strong, .rm-page-ref {
     color: #d9d9d9 !important;
     font-weight: 700;
     transition: color .3s ease;
@@ -128,7 +128,7 @@ a {
 	margin-right: 5px;
 }
 
-.rm-page-ref-tag:hover, .rm-pages-title-text strong:hover {
+.rm-page-ref-tag:hover, .rm-pages-title-text strong:hover, .rm-page-ref:hover {
     color: #ee6b00 !important;
     text-decoration: none;
     transition: color .3s ease;
@@ -337,9 +337,10 @@ code {
     padding-right: 0px !important;
 }
 
-.CodeMirror-widget, .codemirror-colorview, .codemirror-colorview-background {
-  	padding-right: 0px !important;
+.roam-block.dont-unfocus-block.hoverparent.rm-block-text .rm-pomodoro:first-child {
+    padding-right: 15px !important;
 }
+
 
 /*///////////////////////////*/
 /*                           */
@@ -441,6 +442,7 @@ code {
 
 .bp3-popover-content, .bp3-menu, .bp3-elevation-3 {
     background-color: #464545 !important;
+    color: #d9d9d9 !important;
 }
 
 
@@ -462,6 +464,10 @@ code {
     background-color: #0000001c !important;
 }
 
+
+button[style*="padding: 4px 8px;"] {
+    color: black;
+}
 /*////////////////////////*/
 /*                        */
 /*     Button Styling     */
@@ -734,3 +740,32 @@ svg[style*="background-color: white;"] {
 g circle {
     fill: #ff6f00 !important;
 }
+
+/* Calculation */
+
+span[style*="color: rgb(14, 90, 138);"] {
+    font-family: Courier New;
+    color: #d9d9d9 !important;
+    font-weight: 600;
+}
+
+.bp3-popover-arrow-fill {
+    fill: transparent !important;
+}
+
+.bp3-popover[style*="transform-origin: left 15px;"] .bp3-popover-content {
+    color: #d9d9d9 !important;
+    padding: 0 10px;   
+}
+
+/* Calendar */
+
+.bp3-datepicker-day-wrapper, .DayPicker-Weekday {
+    color: #26272a;
+}
+
+.bp3-datepicker .DayPicker-Day.DayPicker-Day--outside {
+    opacity: .4;
+}
+
+
