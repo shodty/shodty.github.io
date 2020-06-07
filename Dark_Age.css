@@ -126,11 +126,7 @@ a {
 
 .rm-page-ref-tag {
     color: #77c691 !important;
-}
-
-
-.rm-page-ref-tag {
-	margin-right: 5px;
+    font-weight: 400;
 }
 
 .rm-page-ref-tag:hover, .rm-pages-title-text strong:hover, .rm-page-ref:hover {
