@@ -2,13 +2,18 @@
     --page-links: #d4d4d4;
     --external-links: #66B5F4;
     --links-hover: #ff6f00;
-    --hashtag-color: #77c691;
+    --hashtags: #77c691;
     --body-text: rgba(255, 255, 255, .70);
     --background: #26272a;
     --sidebar-background: #1e1e1e;
+    --sidebar-text: #c3bca8;
     --headings: #da844f;
     --icons: #75c6a3;
     --icons-hover: #00f800;
+    --bullets: #b49d7d;
+    --references: #b49d7d;
+    --namespaces: #65bf38;
+    --all-pages-mentions: #ffbb5c;
 }
 
 /*////////////////////////////////*/
@@ -62,7 +67,7 @@ body, .roam-body-main {
 }
 
 .roam-bullet-closed {
-    background-color: #b49d7d;
+    background-color: var(--bullets) !important;
 }
 
 .rm-caret, .bp3-icon-standard {
@@ -104,7 +109,7 @@ body, .roam-body-main {
 
 /* sidebar text color */
 .page, .log-button, .starred-pages-wrapper {
-    color: #c3bca8 !important;
+    color: var(--sidebar-text) !important;
   	font-weight: 600;
     transition: color .3s ease;
 }
@@ -136,7 +141,7 @@ a {
 }
 
 .rm-page-ref-tag {
-    color: var(--hashtag-color) !important;
+    color: var(--hashtags) !important;
     font-weight: 400;
 }
 
@@ -185,7 +190,7 @@ span {
 
 /* path text color for linked references */
 .parent-path-wrapper, em, strong {
-    color: #b49d7d;
+    color: var(--references);
 }
 
 /* block reference */
@@ -207,7 +212,7 @@ span {
 /* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
 
 .rm-page-ref-namespace-color {
-    color: #65bf38;
+    color: --namespaces;
     font-weight: 600;
     transition: color .3s ease;
 }
@@ -242,7 +247,7 @@ span {
     background-color: transparent;
     margin: 10px 0px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #b49d7d;
+    border-bottom: 1px solid var(--references);
 }
 
 .rm-level1 {
@@ -251,7 +256,7 @@ span {
 
 /* Reference Section Divider */
 .rm-reference-container {
-    border-top: 5px double #b49d7d;
+    border-top: 5px double var(--references);
     padding-top: 15px;
 }
 
@@ -283,7 +288,7 @@ span {
 
 /* New page text color */
 .rm-new-page {
-    color: #65bf38 !important;
+    color: --namespaces !important;
 }
 
 
@@ -405,7 +410,7 @@ code {
 /* Mentions Pill */
 .rm-clickable-pill, .rm-clickable-pill.level1-pill, .rm-clickable-pill.level2-pill, .rm-clickable-pill.level3-pill, .rm-clickable-pill.level4-pill {
     color: var(--background);
-    background: #ffbb5c;
+    background: var(--all-pages-mentions);
     opacity: 1 !important;
     padding: 2px 10px !important;
     width: 42px;
@@ -413,11 +418,13 @@ code {
 }
 
 .rm-clickable-pill.level1-pill {
-    background: #f7a22b;
+    background: var(--all-pages-mentions);
+    filter: hue-rotate(7deg);
 }
 
 .rm-clickable-pill.level3-pill {
-    background: #ff7b00;
+    background: var(--all-pages-mentions);
+    filter: hue-rotate(15deg);
 }
 
 .rm-clickable-pill.empty-pill {
