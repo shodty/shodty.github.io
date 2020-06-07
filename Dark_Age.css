@@ -124,7 +124,7 @@ h1, h2, h3 {
 
 /* main link coloring + hover */
 a {
-  	color: (--external-links) !important;
+  	color: var(--external-links) !important;
     transition: color .3s ease;
 }
 
