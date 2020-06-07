@@ -366,7 +366,10 @@ code {
     padding-right: 15px !important;
 }
 
-
+/* CSS Variables */ 
+.cm-s-default .cm-variable-2 {
+    color: rgb(255,201,0);
+  }
 /*/////////////////////////////////////*/
 /*                                     */
 /*     "All Pages" Section Styling     */
