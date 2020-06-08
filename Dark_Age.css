@@ -261,7 +261,7 @@ strong {
     background-color: transparent !important;
     color: var(--links-hover) !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid var(--reference-underline);
+    border-bottom: 1px solid var(--references-underline);
 }
 
 /* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
