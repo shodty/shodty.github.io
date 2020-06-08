@@ -1,34 +1,34 @@
 :root {
-    --page-links: #d4d4d4;
-    --external-links: #66B5F4;
-    --links-hover: #ff6f00;
-    --hashtags: #77c691;
-    --body-text: #FFFFFFB2;
-    --italics-color: #b49d7d;
-    --bold-color: #b49d7d;
-    --highlight-text-color: #d8dadb ;
-    --highlighter: #3b5e39;
-    --background: #26272a;
-    --sidebar-background: #1e1e1e;
-    --sidebar-text: #c3bca8;
-    --page-heading: #F4B288;
-    --daily-heading: #F4B288;
-    --headings: #da844f;
-    --icons: #75c6a3;
-    --filter-icon: #FF0000;
-    --icons-hover: #00f800;
-    --bullets: #b49d7d;
-    --references: #b49d7d;
-    --references-underline: #b49d7d33;
-    --namespaces: #65bf38;
-    --all-pages-mentions: #F79A18;
-    --cursor: #FFFFFF;
-  	/* FONT SIZES */
-    --main-font-size: 1em;
-    --page-head-font-size: 36px;
-  	--h1-font-size: 1.8em;
-  	--h2-font-size: 1.4em;
-  	--h3-font-size: 1.2em;
+    --page-links: #d4d4d4;              /* [[Page Link]] */
+    --attributes-color: #b49d7d;        /* Attribute:: */
+    --external-links: #66B5F4;          /* https://www.google.com */
+    --links-hover: #ff6f00;             /* hover color of all links */
+    --hashtags: #77c691;                /* #hashtag #[[hash tags]] */
+    --body-text: #FFFFFFB2;             /* general body text */
+    --italics-color: #b49d7d;           /* __italicized text__ */
+    --bold-color: #b49d7d;              /* **bolded text** */
+    --highlight-text-color: #d8dadb ;   /* highlighted text color */
+    --highlighter: #3b5e39;             /* highlighter color */
+    --background: #26272a;              /* main page background */
+    --sidebar-background: #1e1e1e;      /* sidebar background */
+    --sidebar-text: #c3bca8;            /* sidebar text  */
+    --page-heading: #F4B288;            /* Page Title (i.e. roam/css) */
+    --daily-heading: #F4B288;           /* Daily Notes date heading */
+    --headings: #da844f;                /* h1, h2, h3 */
+    --icons: #75c6a3;                   /* icons color */
+    --icons-hover: #00f800;             /* icons hover color */
+    --filter-icon: #FF0000;             /* filter icon color */
+    --bullets: #b49d7d;                 /* bullet color */
+    --references: #b49d7d;              /* reference underline color */
+    --block-reference-text: #b49d7d;    /* block reference color */
+    --namespaces: #65bf38;              /* Namespace/color (ctrl+c ctrl+x) */
+    --all-pages-mentions: #F79A18;      /* mentions pill on ALl Pages */
+    --cursor: #FFFFFF;                  /* cursor color */
+    /* FONT SIZES */             
+    --page-head-font-size: 36px;          /* page heading */
+    --h1-font-size: 1.8em;                /* h1 size */
+    --h2-font-size: 1.4em;                /* h2 size */
+    --h3-font-size: 1.2em;                /* h3 size */
 }
 
 /*////////////////////////////////*/
@@ -234,6 +234,11 @@ h4.level1 a:hover, h4.level2 a:hover, h4.level3 a:hover, h4.level4 a:hover {
     transition: color .3s ease;
 }
 
+/* Attribute links */
+strong[tabindex="-1"] {
+    color: var(--attributes-color) !important;
+  }
+
 /* ToDos color + Z-index Fix */
 .check-container input:checked ~ .checkmark {
     background-color: #FFFFFF;
@@ -266,9 +271,9 @@ strong {
 /* block reference */
 .roam-block .rm-block-ref, span[style*="color: red"] {
     background-color: transparent !important;
-    color: #e1c39a !important;
+    color: var(--block-reference-text) !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid var(--references-underline);
+    border-bottom: 1px solid var(--block-reference-text);
     
 }
 
@@ -276,7 +281,7 @@ strong {
     background-color: transparent !important;
     color: var(--links-hover) !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid var(--references-underline);
+    border-bottom: 1px solid var(--block-reference-text);
 }
 
 /* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
