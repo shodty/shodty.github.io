@@ -15,9 +15,6 @@
     --page-heading: #F4B288;            /* Page Title (i.e. roam/css) */
     --daily-heading: #F4B288;           /* Daily Notes date heading */
     --headings: #da844f;                /* h1, h2, h3 */
-    --icons: #75c6a3;                   /* icons color */
-    --icons-hover: #00f800;             /* icons hover color */
-    --filter-icon: #FF0000;             /* filter icon color */
     --bullets: #394b59;                 /* bullet color */
     --closed-bullets: #b49d7d;          /* closed bullet color */
     --references: #b49d7d;              /* reference underline color */
@@ -25,6 +22,10 @@
     --namespaces: #65bf38;              /* Namespace/color (win: ctrl+c ctrl+L) or (mac: cmd+c cmd+L) */
     --all-pages-mentions: #F79A18;      /* mentions pill on ALl Pages */
     --cursor: #FFFFFF;                  /* cursor color */
+    /* ICON COLORS */ 
+    --icons: #75c6a3;                   /* icons color */
+    --icons-hover: #00f800;             /* icons hover color */
+    --filter-icon: #FF0000;             /* filter icon color */
     /* FONT SIZES */             
     --page-head-font-size: 36px;          /* page heading */
     --h1-font-size: 1.8em;                /* h1 size */
