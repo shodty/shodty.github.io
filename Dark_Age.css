@@ -180,7 +180,7 @@ h1, h2, h3 {
     color: var(--page-heading) !important;
   }
   
-.rm-log-page .rm-title-display {
+.roam-log-page .rm-title-display {
     color: var(--daily-heading) !important;
   }
 
