@@ -831,7 +831,7 @@ rect[fill*="#fff"] {
 }
 
 textarea[autocapitalize*="none"] {
-    color: var(--page-links) !important;
+    color: var(--body-text) !important;
 }
 
 foreignObject {
