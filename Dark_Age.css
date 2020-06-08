@@ -18,7 +18,7 @@
     --icons: #75c6a3;                   /* icons color */
     --icons-hover: #00f800;             /* icons hover color */
     --filter-icon: #FF0000;             /* filter icon color */
-    --bullets: #b49d7d;                 /* bullet color */
+    --bullets: #394b59;                 /* bullet color */
     --closed-bullets: #b49d7d;          /* closed bullet color */
     --references: #b49d7d;              /* reference underline color */
     --block-reference-text: #b49d7d;    /* block reference color */
@@ -30,6 +30,8 @@
     --h1-font-size: 1.8em;                /* h1 size */
     --h2-font-size: 1.4em;                /* h2 size */
     --h3-font-size: 1.2em;                /* h3 size */
+    /* DROPDOWN MENU */
+    --dropdown-menu-text: #da844f;      /* Text color in dropdown menus */
 }
 
 /*////////////////////////////////*/
@@ -466,8 +468,6 @@ code {
     padding-right: 0px !important;
 }
 
-
-
 /* Row background color */
 .rm-pages-row {
     background-color: transparent !important;
@@ -569,6 +569,9 @@ code {
     background-color: #0000001c !important;
 }
 
+.bp3-text-overflow-ellipsis {
+    color: var(--dropdown-menu-text) !important;
+}
 
 button[style*="padding: 4px 8px;"] {
     color: black;
