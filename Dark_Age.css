@@ -3,17 +3,20 @@
     --external-links: #66B5F4;
     --links-hover: #ff6f00;
     --hashtags: #77c691;
-    --body-text: rgba(255, 255, 255, .70);
+    --body-text: #FFFFFFB2;
     --background: #26272a;
     --sidebar-background: #1e1e1e;
     --sidebar-text: #c3bca8;
     --headings: #da844f;
     --icons: #75c6a3;
+    --filter-icon: red;
     --icons-hover: #00f800;
     --bullets: #b49d7d;
     --references: #b49d7d;
+    --references-underline: #FFFFFF33;
     --namespaces: #65bf38;
     --all-pages-mentions: #ffbb5c;
+    --cursor: white;
 }
 
 /*////////////////////////////////*/
@@ -21,6 +24,7 @@
 /*     Container Sizing Fixes     */
 /*                                */
 /*////////////////////////////////*/
+/* COMMENTING OUT UNTIL FIXED
 .roam-center div:first-child {
     padding-right: calc((100% - 900px) / 2) !important;
 }
@@ -36,6 +40,7 @@
      max-width: 680px;
 }
 
+*/
 .roam-block {
     min-height: calc(1em + 8px);
 }
@@ -101,6 +106,11 @@ body, .roam-body-main {
 /*     General Text Styling     */
 /*                              */
 /*//////////////////////////////*/
+
+/* Cursor color */
+.roam-body .roam-app {
+    caret-color: var(--cursor) !important;
+}
 
 /* Body text color */
 .roam-body .roam-app {
@@ -198,7 +208,7 @@ span {
     background-color: transparent !important;
     color: #e1c39a !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid var(--reference-underline);
     
 }
 
@@ -381,6 +391,12 @@ code {
 /*                                     */
 /*/////////////////////////////////////*/
 
+/* Top bar size fixes */
+.rm-all-pages .table .rm-pages-row .rm-pages-checkbox-col  {
+    padding-right: 0px !important;
+}
+
+
 
 /* Row background color */
 .rm-pages-row {
@@ -539,7 +555,7 @@ button[style*="padding: 4px 8px;"] {
 
 
 .bp3-icon.bp3-icon-filter[style*="color: rgb(168, 42, 42);"] {
-    color: red !important;
+    color: var(--filter-icon) !important;
 }
 
 div[style*="position: absolute; z-index: 1000; top: 0px; right: 0px; opacity: 0.5;"] {
