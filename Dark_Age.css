@@ -4,6 +4,10 @@
     --links-hover: #ff6f00;
     --hashtags: #77c691;
     --body-text: #FFFFFFB2;
+    --italics-color: #b49d7d;
+    --bold-color: #b49d7d;
+    --highlight-text-color: #d8dadb ;
+    --highlighter: #3b5e39;
     --background: #26272a;
     --sidebar-background: #1e1e1e;
     --sidebar-text: #c3bca8;
@@ -133,7 +137,7 @@ h1 {
     font-size: var(--h2-font-size) !important;
 }
 
-.rm-level2 {
+.rm-level3 {
     font-size: var(--h3-font-size) !important;
 }
 
@@ -230,9 +234,18 @@ span {
 }
 
 /* path text color for linked references */
-.parent-path-wrapper, em, strong {
+.parent-path-wrapper {
     color: var(--references);
 }
+
+em {
+    color: var(--italics-color);
+}
+
+strong {
+    color: var(--bold-color);
+}
+
 
 /* block reference */
 .roam-block .rm-block-ref, span[style*="color: red"] {
@@ -268,8 +281,8 @@ span {
 /* Highlights */
 
 .roam-highlight {
-    color: #d8dadb;
-    background-color: #3b5e39;
+    color: var(--highlight-text-color);
+    background-color: var(--highlighter);
 }
 
 .block-highlight-yellow {
@@ -466,12 +479,12 @@ code {
 
 .rm-clickable-pill.level1-pill {
     background: var(--all-pages-mentions);
-    filter: hue-rotate(7deg);
+    filter: hue-rotate(-10deg);
 }
 
 .rm-clickable-pill.level3-pill {
     background: var(--all-pages-mentions);
-    filter: hue-rotate(15deg);
+    filter: hue-rotate(-20deg);
 }
 
 .rm-clickable-pill.empty-pill {
