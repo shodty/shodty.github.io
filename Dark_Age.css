@@ -19,9 +19,10 @@
     --icons-hover: #00f800;             /* icons hover color */
     --filter-icon: #FF0000;             /* filter icon color */
     --bullets: #b49d7d;                 /* bullet color */
+    --closed-bullets: #b49d7d;          /* closed bullet color */
     --references: #b49d7d;              /* reference underline color */
     --block-reference-text: #b49d7d;    /* block reference color */
-    --namespaces: #65bf38;              /* Namespace/color (ctrl+c ctrl+x) */
+    --namespaces: #65bf38;              /* Namespace/color (win: ctrl+c ctrl+L) or (mac: cmd+c cmd+L) */
     --all-pages-mentions: #F79A18;      /* mentions pill on ALl Pages */
     --cursor: #FFFFFF;                  /* cursor color */
     /* FONT SIZES */             
@@ -84,6 +85,10 @@ body, .roam-body-main {
 }
 
 .roam-bullet-closed {
+    background-color: var(--closed-bullets) !important;
+}
+
+.simple-bullet-inner {
     background-color: var(--bullets) !important;
 }
 
