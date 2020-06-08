@@ -9,14 +9,20 @@
     --sidebar-text: #c3bca8;
     --headings: #da844f;
     --icons: #75c6a3;
-    --filter-icon: red;
+    --filter-icon: #FF0000;
     --icons-hover: #00f800;
     --bullets: #b49d7d;
     --references: #b49d7d;
-    --references-underline: #FFFFFF33;
+    --references-underline: #004FF433;
     --namespaces: #65bf38;
     --all-pages-mentions: #ffbb5c;
-    --cursor: white;
+    --cursor: #FFFFFF;
+  	/* FONT SIZES */
+    --main-font-size: 1em;
+    --page-head-font-size: 36px;
+  	--h1-font-size: 1.8em;
+  	--h2-font-size: 1.4em;
+  	--h3-font-size: 1.2em;
 }
 
 /*////////////////////////////////*/
@@ -106,6 +112,31 @@ body, .roam-body-main {
 /*     General Text Styling     */
 /*                              */
 /*//////////////////////////////*/
+
+/* Main Font Size */
+
+div {
+    font-size: var(--main-font-size) !important;
+}
+
+/* Heading Sizes */
+
+h1 {
+    font-size: var(--page-head-font-size) !important;
+}
+
+.rm-level1 {
+    font-size: var(--h1-font-size) !important;
+}
+
+.rm-level2 {
+    font-size: var(--h2-font-size) !important;
+}
+
+.rm-level2 {
+    font-size: var(--h3-font-size) !important;
+}
+
 
 /* Cursor color */
 .roam-body .roam-app {
@@ -216,7 +247,7 @@ span {
     background-color: transparent !important;
     color: var(--links-hover) !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid rgba(255, 152, 0, .6);
+    border-bottom: 1px solid var(--reference-underline);
 }
 
 /* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
