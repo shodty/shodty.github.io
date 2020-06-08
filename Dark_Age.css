@@ -11,6 +11,8 @@
     --background: #26272a;
     --sidebar-background: #1e1e1e;
     --sidebar-text: #c3bca8;
+    --page-heading: #F4B288;
+    --daily-heading: #F4B288;
     --headings: #da844f;
     --icons: #75c6a3;
     --filter-icon: #FF0000;
@@ -19,7 +21,7 @@
     --references: #b49d7d;
     --references-underline: #b49d7d33;
     --namespaces: #65bf38;
-    --all-pages-mentions: #ffbb5c;
+    --all-pages-mentions: #F79A18;
     --cursor: #FFFFFF;
   	/* FONT SIZES */
     --main-font-size: 1em;
@@ -171,6 +173,19 @@ h1 {
 /* Heading/Header Colors, includes Date header on daily notes */
 h1, h2, h3 {
     color: var(--headings) !important;
+}
+
+/* Page title & Daily date color */
+.rm-title-display {
+    color: var(--page-heading) !important;
+  }
+  
+.rm-log-page .rm-title-display {
+    color: var(--daily-heading) !important;
+  }
+
+.roam-log-page.roam-log-preview h1 {
+    color: var(--daily-heading) !important;
 }
 
 /* main link coloring + hover */
@@ -580,22 +595,23 @@ button[style*="padding: 4px 8px;"] {
 }
 
 .block-ref-count-button {
+    font-family: 'Inter', sans-serif !important;
     color: var(--icons) !important;
-    background: transparent;
-    border: 1px solid var(--icons);
-    border-radius: 100px;
-    z-index: 1000;
-    transition: color .3s ease, border .3s ease;
-    opacity: 1;
+    background: transparent  !important;
+    border: 1px solid var(--icons) !important;
+    border-radius: 100px !important;
+    z-index: 1000 !important;
+    transition: color .3s ease, border .3s ease !important;
+    opacity: 1 !important;
 }
 
 .block-ref-count-button:hover {
     color: var(--icons-hover) !important;
     background: transparent !important;
-    border: 1px solid var(--icons-hover);
-    border-radius: 100px;
-    z-index: 1000;
-    transition: color .3s ease,  border .3s ease;
+    border: 1px solid var(--icons-hover) !important;
+    border-radius: 100px !important;
+    z-index: 1000 !important;
+    transition: color .3s ease,  border .3s ease !important;
 }
 
 
@@ -767,7 +783,7 @@ select option {
 
 .bp3-button:not([class*="bp3-intent-"]):hover {
     transition: color .3s ease;
-    color: var(--links-hover) !important;
+    color: var(--icons-hover) !important;
 }
 
 /* Query */
