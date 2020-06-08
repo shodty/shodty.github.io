@@ -17,7 +17,7 @@
     --icons-hover: #00f800;
     --bullets: #b49d7d;
     --references: #b49d7d;
-    --references-underline: #004FF433;
+    --references-underline: #b49d7d33;
     --namespaces: #65bf38;
     --all-pages-mentions: #ffbb5c;
     --cursor: #FFFFFF;
@@ -253,7 +253,7 @@ strong {
     background-color: transparent !important;
     color: #e1c39a !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid var(--reference-underline);
+    border-bottom: 1px solid var(--references-underline);
     
 }
 
