@@ -117,11 +117,12 @@ body, .roam-body-main {
 /*                              */
 /*//////////////////////////////*/
 
-/* Main Font Size */
+/* Main Font Size  WIP
 
 div {
     font-size: var(--main-font-size) !important;
 }
+*/
 
 /* Heading Sizes */
 
