@@ -62,6 +62,37 @@
 }
 
 
+/* Table Cell sizing */
+td {
+    padding: 8px 8px !important;
+    text-align: center;
+    min-width: 40px !important;
+  }
+  
+/* Menu Overlay fix */
+
+.bp3-elevation-3 {
+    z-index: 2000 !important;
+  }
+  
+
+/* Vertical centering Horizontal rules and headings  */
+
+  hr {
+    margin-top: 10px;
+    margin-bottom: 0px;
+  }
+  
+  h3.rm-level3 {
+        margin-top: -3px !important;
+  }
+  h2.rm-level2 {
+        margin-top: -4px !important;
+  }
+  h1.rm-level1 {
+        margin-top: -5px !important;
+  }
+
 /*/////////////////////////////////////*/
 /*                                     */
 /*     General Background Coloring     */
