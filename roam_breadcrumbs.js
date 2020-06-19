@@ -44,10 +44,11 @@ function addPageToRecent() {
     var parent = document.getElementsByClassName("rm-title-display")[0]; //snags the page title
     var children = parent.children[0]; 
     var pageUrl = window.location.href; //snags the url for said page
-    if (urlArray.slice(0, 5).includes(pageUrl) == false) { //slice keeps the list to 5 links, increase slice size if you wish
+    if (urlArray.slice(0, 5).includes(pageUrl) == false) { //checks if the link already exists in the last 5 links
         urlArray.unshift(pageUrl);
         var result = "<a href='" + pageUrl + "' class='recentLink'>" + children.innerHTML.substring(0, 25) + "</a>"; //adds <a> element to array, maximum 25 chars, increase substring size if you wish
         linksArray.unshift(result);
-        breadCrumbDiv.innerHTML = linksArray.slice(0, 5); //puts the <a> array into the breadCrumbDiv
+        linksArray = linksArray.slice(0, 5); //reduces the array to to 5 link max, in crease if you wish
+        breadCrumbDiv.innerHTML = linksArray; //puts the <a> array into the breadCrumbDiv
     }
 }
