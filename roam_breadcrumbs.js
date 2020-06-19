@@ -1,13 +1,14 @@
 //#recentLinks div to hold breadcrumbs
 var breadCrumbDiv = document.createElement('div'); // #recentLinks div to hold breadcrumbs
 breadCrumbDiv.id = 'recentLinks';
-document.body.appendChild(breadCrumbDiv);
+var topBarDiv = document.getElementsByClassName("roam-topbar")[0];
+topBarDiv.appendChild(breadCrumbDiv); //put it in the topbar div for z-index purposes
 window.addEventListener("hashchange", timedFunction);
 
 //div + button to stop/start listener, & show/hide breadcrumbs
 var toggleDiv = document.createElement('div');
 toggleDiv.id = 'closeCrumbs';
-document.body.appendChild(toggleDiv);
+topBarDiv.appendChild(toggleDiv);
 
 var toggleButton = document.createElement("button");
 toggleButton.id = 'buttonLayer';
