@@ -1,0 +1,28 @@
+.recentLink {
+    padding: 0 10px;
+    color: rgba(255,255,255,0.55) !important;
+  
+  }
+  
+  #buttonLayer  {
+    border: 0;
+    color: green;
+    font-size: 24px;
+  }
+  
+  #recentLinks, #closeCrumbs {
+    position: absolute;
+    left: 26%;
+    z-index: 2000;
+    top: 1px;
+    width: auto;
+    height: 45px;
+    padding: 10px;
+    margin-right: 80px;
+  }
+  
+  #closeCrumbs {
+    left: 25%;
+    top: 0px;
+  }
+  
