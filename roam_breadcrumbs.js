@@ -27,7 +27,7 @@ function turnOnOff() {
   	var btn = document.querySelector('#buttonLayer');
     if (!onOff) {
         elem.style.display = 'none';
-      	btn.style.color = 'red';
+      	btn.style.color = 'grey';
       	window.removeEventListener("hashchange", timedFunction);
     } else {
         elem.style.display = 'block';
