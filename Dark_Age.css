@@ -951,3 +951,25 @@ span[style*="color: rgb(14, 90, 138);"] {
 .loading-astrolabe {
     content:url("https://i.imgur.com/ucITJk7.gif");
 }
+
+
+/* ROAM BREADCRUMBS STYLING */
+
+.roam-topbar .bp3-popover-wrapper, .rm-find-or-create-wrapper {
+    background: #1e1e1e;
+    z-index: 10;
+  }
+  
+  .bp3-input {
+    background: #292929 !important; /* search bar background color */
+  }
+  
+  .linkNumber {
+    font-family: "Courier New";
+    margin-right: 3px;
+    color: rgb(255,255,255) !important;
+  }
+  
+  .recentLink {
+    color: rgba(255,255,255,0.45) !important;
+  }
