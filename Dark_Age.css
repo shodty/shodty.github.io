@@ -2,8 +2,8 @@
     /* GLOBAL FONT */
     --global-font: 'Inter', sans-serif;   /* Global font (will granulate soon) */
     /* GLOBAL WIDTH FOR BLOCKS */
-    --block-padding-right: 568px;         /* Adjust these two padding values to increase */
-    --block-padding-left: 1032px;         /* the global width of your blocks on the page */
+    --reduce-padding-right: 568px;         /* Adjust these two padding values to increase */
+    --reduce-padding-left: 1032px;         /* the global width of your blocks on the page */
     /* TEXT COLORS */
     --page-links: #D5A979;              /* [[Page Link]] */
     --attributes-color: #CEA2A1;        /* Attribute:: */
@@ -1002,4 +1002,8 @@ span[style*="color: rgb(14, 90, 138);"] {
     padding-right: calc((100% - var(--block-padding-right)) / 2) !important;
     padding-left: calc((100% - var(--block-padding-left)) / 2) !important;
 }
-  
+
+div[style*="padding-right: calc((100% - 568px) / 2); padding-left: calc((100% - 1032px) / 2);"] {
+    padding-right: calc((100% - var(--block-padding-right)) / 2) !important;
+    padding-left: calc((100% - var(--block-padding-left)) / 2) !important;
+}
