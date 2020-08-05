@@ -1013,6 +1013,6 @@ div[style*="padding-right: calc((100% - 568px) / 2); padding-left: calc((100% - 
 }
 
 /* hide sidebar button visibility */
-.bp3-icon-menu-closed[style*="opacity: 0;"] {
-opacity: 1 !important;
+.bp3-icon-menu-closed {
+    transition: opacity .3s ease !important;
 }
