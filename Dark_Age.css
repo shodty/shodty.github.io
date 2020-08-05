@@ -1,25 +1,25 @@
 :root {
     /* GLOBAL FONT */
-  	--global-font: 'Inter', sans-serif;  /* Global font (will granulate soon) */
+  	--global-font: 'Inter', sans-serif;   /* Global font (will granulate soon) */
     /* TEXT COLORS */
     --page-links: #D5A979;              /* [[Page Link]] */
     --attributes-color: #CEA2A1;        /* Attribute:: */
     --external-links: #53A6C8;          /* https://www.google.com */
     --links-hover: #EE8443;             /* hover color of all links */
-    --hashtags: #FFFFFF84;                /* #hashtag #[[hash tags]] */
+    --hashtags: #FFFFFF84;              /* #hashtag #[[hash tags]] */
     --body-text: #FFFFFFB2;             /* general body text */
-    --italics-color: #FFFFFFB2;           /* __italicized text__ */
-    --bold-color: #FFFFFFB2;              /* **bolded text** */
+    --italics-color: #FFFFFFB2;         /* __italicized text__ */
+    --bold-color: #FFFFFFB2;            /* **bolded text** */
     --highlight-text-color: #d8dadb ;   /* highlighted text color */
     --highlighter: #3b5e39;             /* highlighter color */
     --background: #26272a;              /* main page background */
     --sidebar-background: #1e1e1e;      /* sidebar background */
-    --sidebar-text: #FFFFFFB2;            /* sidebar text  */
-    --page-heading: #FFFFFFB2;            /* Page Title (i.e. roam/css) */
-    --daily-heading: #FFFFFFB2;           /* Daily Notes date heading */
-    --headings: #FFFFFFB2;                /* h1, h2, h3 */
+    --sidebar-text: #FFFFFFB2;          /* sidebar text  */
+    --page-heading: #FFFFFFB2;          /* Page Title (i.e. roam/css) */
+    --daily-heading: #FFFFFFB2;         /* Daily Notes date heading */
+    --headings: #FFFFFFB2;              /* h1, h2, h3 */
     --bullets: #394b59;                 /* bullet color */
-    --closed-bullets: #FFFFFF7C;          /* closed bullet color */
+    --closed-bullets: #FFFFFF7C;        /* closed bullet color */
     --references: #A3B47D;              /* reference underline color */
     --block-reference-text: #A3B47D;    /* block reference color */
     --namespaces: #1CD247;              /* Namespace/color (win: ctrl+c ctrl+L) or (mac: cmd+c cmd+L) */
@@ -31,12 +31,17 @@
     --filter-icon: #FF0000;             /* filter icon color */
     /* FONT SIZES */
     --page-head-font-size: 36px;          /* page heading */
-    --h1-font-size: 2em;                /* h1 size */
+    --h1-font-size: 2em;                  /* h1 size */
     --h2-font-size: 1.6em;                /* h2 size */
     --h3-font-size: 1.2em;                /* h3 size */
     /* DROPDOWN MENU */
-    --dropdown-menu-text: #DAA44F;      /* Text color in dropdown menus */
-    
+    --dropdown-menu-background: #464545; /* Dropdown menu background color */
+    --dropdown-menu-highlight: #3e3d3d;  /* Dropdown menu item highlight */
+    --dropdown-menu-text: #DAA44F;       /* Text color in dropdown menus */
+    --dropdown-newpage: #61df61;
+    /* SEARCH BAR */
+    --search-bar-background: #292929;
+    --search-bar-text: white;
 }
 
 /*////////////////////////////////*/
@@ -123,7 +128,7 @@ body, .roam-body-main {
   border-bottom: 0px;
 }
 
-/* BLOCKS BACKGRROUND */
+/* BLOCKS BACKGROUND */
 .roam-block > span > div {
     background-color: inherit !important;
 }
@@ -392,27 +397,28 @@ strong {
 
 /* Search box background color */
 .bp3-input, .rm-pages-toolbar .toolbar-search-group .search-input {
-    background: rgba(255, 255, 255, .05);
+    background: var(--search-bar-background);
 }
 
 /* Search box placeholder text color */
 .bp3-input::placeholder {
-  color: rgba(255,255,255,0.33);
+  color: var(--search-bar-text);
+  opacity: .33;
 }
 
 /* Search box input text color */
 .bp3-input-group input {
-    color: white !important
+    color: var(--search-bar-text) !important;
 }
 
 /* Dropdown page menu hover highlight */
 .rm-menu-item:hover {
-    background: #0000001c !important;
+    background: var(--dropdown-menu-highlight) !important;
 }
 
 /* New page text color */
 .rm-new-page {
-    color: --namespaces !important;
+    color: var(--dropdown-newpage) !important;
 }
 
 
@@ -588,7 +594,7 @@ code {
 /*///////////////////////////////*/
 
 .bp3-popover-content, .bp3-menu, .bp3-elevation-3 {
-    background-color: #464545 !important;
+    background-color: var(--dropdown-menu-background) !important;
     color: var(--page-links) !important;
 }
 
@@ -830,8 +836,8 @@ select option {
 
 /* Word Count */
 .bp3-button:not([class*="bp3-intent-"]) {
-    background: transparent !important;
-    color: white !important;
+    /*background: transparent !important; not sure this is needed? */
+    color: var(--body-text) !important;
     font-family: Courier New;
     transition: color .3s ease;
 }
@@ -844,20 +850,20 @@ select option {
 /* Query */
 .rm-query-title {
   background: inherit !important;
-  color: #c3bca8 !important;
+  color: var(--references) !important;
   font-weight: 600;
 }
 
 /* Alias */
 span[style*="background-color: rgb(235, 241, 245);"] {
-    background: #2b2a2a !important;
-    color: #c3bca8 !important;
-  	border: 1px solid #c3bca8;
+    background: var(--sidebar-background) !important;
+    color: var(--body-text) !important;
+  	border: 1px solid var(--body-text);
     transition: color .3s ease, border .3s ease;
 }
 
 span[style*="background-color: rgb(235, 241, 245);"]:hover {
-    background: #2b2a2a !important;
+    background: var(--sidebar-background) !important;
     color: var(--links-hover) !important;
     border: 1px solid var(--links-hover);
     transition: color .3s ease, border .3s ease;
@@ -961,7 +967,7 @@ span[style*="color: rgb(14, 90, 138);"] {
   }
   
   .bp3-input {
-    background: #292929 !important; /* search bar background color */
+    background: var(--search-bar-background) !important; /* search bar background color */
   }
   
   .linkNumber {
@@ -972,4 +978,12 @@ span[style*="color: rgb(14, 90, 138);"] {
   
   .recentLink {
     color: rgba(255,255,255,0.45) !important;
+  }
+
+.roam-sidebar-container .roam-sidebar-content .top-row:hover {
+      background-color: var(--dropdown-menu-highlight) !important;
+  }
+
+  .bp3-popover-wrapper {
+    min-width: 24px;
   }
