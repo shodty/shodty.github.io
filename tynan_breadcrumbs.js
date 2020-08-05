@@ -76,47 +76,37 @@ function addPageToRecent() {
 
 function  addLinkElement(pageUrl) {
     var parent = document.getElementsByClassName("rm-title-display")[0]; //snags the page title
-    if(pageUrl == 'https://roamresearch.com/#/app/shodty') { //checks if they are on daily notes page
-        createLinkElement(parent, pageUrl, 0);
-    }
-    if(parent != null) {  // gets page name if not on daily pages
-        var children = parent.children[0];
-        createLinkElement(children, pageUrl, 1);
-    }
-    else { // checks if the user is zoomed into a bullet
-        var parent = document.getElementsByClassName("zoom-path-view")[0];
-        var children = parent.children[0].children[0].children[0];
-        createLinkElement(children, pageUrl, 2);
-    }
-}
-
-function createLinkElement(children, pageUrl, urlCase) {
+    var children = parent.children[0]; 
     var lastNine = pageUrl.substr(pageUrl.length - 9);
-    if(urlCase == 0) {var innerChild = "<span style='color: #FF5E00;'>✹</span> Daily Notes" }
-    else if(urlCase == 1) { var innerChild = children.innerHTML.substring(0, 25) }
-    else if(urlCase == 2) { var innerChild =  "<span style='color: #0D9BDB;'>🞇</span> " + children.innerHTML.substring(0, 20) }
-    var linkElement = "<a id='" + lastNine + "' href='" + pageUrl + "' class='recentLink' style='padding: 0 10px;'>" + innerChild + "</a>"; //adds <a> element to array, maximum 25 chars, increase substring size if you wish
+    var linkElement = "<a id='" + lastNine + "' href='" + pageUrl + "' class='recentLink' style='padding: 0 10px;'>" + children.innerHTML.substring(0, 25) + "</a>"; //adds <a> element to array, maximum 25 chars, increase substring size if you wish
     urlArray.unshift(pageUrl);
     linksArray.unshift(linkElement);
     linksArray = linksArray.slice(0, 8); //reduces the array to to 5 link max, in crease if you wish
     breadCrumbDiv.innerHTML = linksArray.slice(1, 8).join("‣"); //puts the <a> array into the breadCrumbDiv
     var linkElements = document.getElementsByClassName("recentLink");
     for(i=0; i<linkElements.length; i++){
-        var linkNumber = "<span style='color: #0087FF; padding-right: 3px;' class='linkNumber'>" + (i+1).toString() + "</span>";
-    linkElements[i].innerHTML = linkNumber + linkElements[i].innerHTML;
+        var linkNumber = "<span style='color: #FFFFFF; padding-right: 3px;' class='linkNumber'>" + (i+1).toString() + "</span>";
+       linkElements[i].innerHTML = linkNumber + linkElements[i].innerHTML;
     }
 }
 
-window.addEventListener ("keyup", hotKeyEvent);
+document.addEventListener ("keydown", hotKeyEvent);
+/*
+function linkDivCreate() {
+    var linkDiv = document.createElement('div');
+    linkDiv.style.display = "inline-block";
+    linkDiv.innerHTML = linksArray.splice(i, 1);
+}
+*/
 
 function hotKeyEvent(zEvent) {
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "1") { clickLink(1); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "2") { clickLink(2); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "3") { clickLink(3); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "4") { clickLink(4); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "5") { clickLink(5); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "6") { clickLink(6); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "7") { clickLink(7); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "1") { clickLink(1); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "2") { clickLink(2); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "3") { clickLink(3); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "4") { clickLink(4); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "5") { clickLink(5); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "6") { clickLink(6); }
+    if (zEvent.ctrlKey  &&  zEvent.key === "7") { clickLink(7); }
 }
 
 function clickLink(n) {
