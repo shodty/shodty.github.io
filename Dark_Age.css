@@ -1016,3 +1016,12 @@ div[style*="padding-right: calc((100% - 568px) / 2); padding-left: calc((100% - 
 .bp3-icon-menu-closed {
     transition: opacity .3s ease !important;
 }
+
+/* sidebar dropdown menu */
+.roam-body .roam-app .roam-sidebar-container .rm-graph-dropdown .menu-title {
+    color: var(--dropdown-menu-text) !important;
+}
+  
+.roam-body .roam-app .roam-sidebar-container .rm-graph-dropdown .setting {
+    background: transparent !important;
+}
