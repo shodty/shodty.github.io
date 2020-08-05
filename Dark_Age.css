@@ -999,11 +999,15 @@ span[style*="color: rgb(14, 90, 138);"] {
 /* GLOBAL WIDTH */
 
 #rm-log-container {
-    padding-right: calc((100% - var(--block-padding-right)) / 2) !important;
-    padding-left: calc((100% - var(--block-padding-left)) / 2) !important;
+    padding-right: calc((100% - var(--reduce-padding-right)) / 2) !important;
+    padding-left: calc((100% - var(--reduce-padding-left)) / 2) !important;
 }
 
 div[style*="padding-right: calc((100% - 568px) / 2); padding-left: calc((100% - 1032px) / 2);"] {
-    padding-right: calc((100% - var(--block-padding-right)) / 2) !important;
-    padding-left: calc((100% - var(--block-padding-left)) / 2) !important;
+    padding-right: calc((100% - var(--reduce-padding-right)) / 2) !important;
+    padding-left: calc((100% - var(--reduce-padding-left)) / 2) !important;
 }
+
+.roam-block-container {
+    max-width: 100%;
+  }
