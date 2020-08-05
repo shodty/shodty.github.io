@@ -1025,3 +1025,7 @@ div[style*="padding-right: calc((100% - 568px) / 2); padding-left: calc((100% - 
 .roam-body .roam-app .roam-sidebar-container .rm-graph-dropdown .setting {
     background: transparent !important;
 }
+
+.level2 {
+    font-family: var(--global-font) !important;
+  }
