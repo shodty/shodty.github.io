@@ -1,6 +1,9 @@
 :root {
     /* GLOBAL FONT */
-  	--global-font: 'Inter', sans-serif;   /* Global font (will granulate soon) */
+    --global-font: 'Inter', sans-serif;   /* Global font (will granulate soon) */
+    /* GLOBAL WIDTH FOR BLOCKS */
+    --block-padding-right: 568px;         /* Adjust these two padding values to increase */
+    --block-padding-left: 1032px;         /* the global width of your blocks on the page */
     /* TEXT COLORS */
     --page-links: #D5A979;              /* [[Page Link]] */
     --attributes-color: #CEA2A1;        /* Attribute:: */
@@ -30,18 +33,24 @@
     --icons-hover: #a06427;             /* icons hover color */
     --filter-icon: #FF0000;             /* filter icon color */
     /* FONT SIZES */
+    --main-font-size: 1em;                /* Default is 1em. Can change to px, e.g. 12px, or minor increments like 1.01em */
     --page-head-font-size: 36px;          /* page heading */
     --h1-font-size: 2em;                  /* h1 size */
     --h2-font-size: 1.6em;                /* h2 size */
     --h3-font-size: 1.2em;                /* h3 size */
-    /* DROPDOWN MENU */
+    /* DROPDOWN MENU COLORS */
     --dropdown-menu-background: #464545; /* Dropdown menu background color */
     --dropdown-menu-highlight: #3e3d3d;  /* Dropdown menu item highlight */
     --dropdown-menu-text: #DAA44F;       /* Text color in dropdown menus */
     --dropdown-newpage: #61df61;
-    /* SEARCH BAR */
+    /* SEARCH BAR COLORS */
     --search-bar-background: #292929;
     --search-bar-text: white;
+    /* KANBAN CARD COLORS */
+    --kanban-main-background: #2b2a2a;
+    --kanban-column-background: #2b2a2a;
+    --kanban-card-background: #5959591c;
+    --kanban-text-hover: #00ee6b;
 }
 
 /*////////////////////////////////*/
@@ -72,10 +81,9 @@
 */
 
 /* Global Font style */
-div {
+div, textarea {
     font-family: var(--global-font) !important;
-  }
-
+}
 
 /* Table Cell sizing */
 td {
@@ -173,12 +181,12 @@ body, .roam-body-main {
 /*                              */
 /*//////////////////////////////*/
 
-/* Main Font Size  WIP
+/* Main Font Size  WIP */
 
 div {
     font-size: var(--main-font-size) !important;
 }
-*/
+
 
 /* Heading Sizes */
 
@@ -716,7 +724,7 @@ div[style*="position: absolute; z-index: 1000; top: 0px; right: 0px; opacity: 0.
 /*/////////////////////////////*/
 
 .kanban-column-container, .kanban-board {
-    background-color: #2b2a2a;
+    background-color:  var(--kanban-main-background);
 
 }
 
@@ -725,11 +733,11 @@ div[style*="position: absolute; z-index: 1000; top: 0px; right: 0px; opacity: 0.
 }
 
 .kanban-column {
-    background-color: #2b2a2a
+    background-color: var(--kanban-column-background);
 }
 
 .kanban-card {
-    background-color: #5959591c
+    background-color: var(--kanban-card-background);
 }
 
 span[data-link-title="DONE"] .rm-page-ref {
@@ -748,7 +756,7 @@ span[data-link-title="TODO"] .rm-page-ref {
     color: #ee4f00 !important;
 }
 .kanban-card:hover {
-    color: #00ee6b;
+    color: var(--kanban-text-hover);
 }
 
 /*//////////////////////////*/
@@ -981,9 +989,17 @@ span[style*="color: rgb(14, 90, 138);"] {
   }
 
 .roam-sidebar-container .roam-sidebar-content .top-row:hover {
-      background-color: var(--dropdown-menu-highlight) !important;
+      background-color: var(--sidebar-background) !important;
   }
 
-  .bp3-popover-wrapper {
+.bp3-popover-wrapper {
     min-width: 24px;
-  }
+}   
+
+/* GLOBAL WIDTH */
+
+#rm-log-container {
+    padding-right: calc((100% - var(--block-padding-right)) / 2) !important;
+    padding-left: calc((100% - var(--block-padding-left)) / 2) !important;
+}
+  
