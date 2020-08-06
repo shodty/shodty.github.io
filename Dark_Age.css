@@ -59,27 +59,16 @@
 /*     Container Sizing Fixes     */
 /*                                */
 /*////////////////////////////////*/
-/* COMMENTING OUT UNTIL FIXED
-.roam-center div:first-child {
-    padding-right: calc((100% - 900px) / 2) !important;
-}
 
-.roam-block-container {
-    max-width: calc(1024px - 80px);
-}
-.roam-center .roam-article .rm-block-text {
-    max-width: 680px;
-}
-
-#right-sidebar #roam-right-sidebar-content .rm-block-text {
-     max-width: 680px;
-}
-
-
-.roam-block { // this is making empty blocks wrong height
+/*
+.roam-block {  this is making empty blocks wrong height
     min-height: calc(1em + 8px);
 }
 */
+
+.rm-block-text {
+    max-width: 100% !important;
+  }
 
 /* Global Font style */
 div, textarea {
