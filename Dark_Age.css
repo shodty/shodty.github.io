@@ -985,10 +985,10 @@ span[style*="color: rgb(14, 90, 138);"] {
 .roam-sidebar-container .roam-sidebar-content .top-row:hover {
       background-color: var(--sidebar-background) !important;
   }
-
+/* this broke with recent update, was using it to not cut off icon for # of references on a block
 .bp3-popover-wrapper {
     min-width: 24px;
-}   
+}   */
 
 /* GLOBAL WIDTH */
 
