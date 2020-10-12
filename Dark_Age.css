@@ -144,6 +144,10 @@ body, .roam-body-main {
     opacity: 1 !important;
 }
 
+.rm-caret.rm-caret-hidden {
+    opacity: 0 !important;
+}
+
 .bp3-icon-standard:hover {
     color: var(--icons-hover) !important;
 }
