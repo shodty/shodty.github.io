@@ -17,7 +17,7 @@ const sidebarPress = new KeyboardEvent("keydown", {
     spanOne.appendChild(spanTwo);
     var toggleSideBar = document.createElement('span');
     toggleSideBar.id = 'sideBarDiv';
-    toggleSideBar.classList.add('bp3-icon-menu', 'bp3-button', 'bp3-minimal');
+    toggleSideBar.classList.add('bp3-icon-menu-open', 'bp3-button', 'bp3-minimal');
     spanTwo.appendChild(toggleSideBar);
     var roamTopbar = document.getElementsByClassName("roam-topbar");
     roamTopbar[0].childNodes[0].appendChild(spanOne);
