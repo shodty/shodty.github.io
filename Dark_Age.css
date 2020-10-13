@@ -1034,3 +1034,53 @@ div[style*="padding-right: calc((100% - 800px) / 2); padding-left: calc((100% - 
 .level2 {
     font-family: var(--global-font) !important;
   }
+
+/*/////////////////////////*/
+/*                         */
+/*     Sidebar Styling     */
+/*                         */
+/*/////////////////////////*/
+
+
+  /* David's flex width fix */
+.roam-center {
+    flex-basis: auto !important;
+    resize    : horizontal !important;
+    overflow  : auto !important;
+  }
+
+/*/////////////////////////////////*/
+/*                                 */
+/*     {{[[roam/js]]}} Styling     */
+/*                                 */
+/*/////////////////////////////////*/
+
+div[style="color: rgb(114, 28, 36); background: rgb(248, 215, 218); padding: 10px;"] {
+    background: rgb(88,116,217) !important;
+    color: var(--body-text) !important;
+    opacity: .8;
+    border-radius: 8px;
+}
+  
+button.bp3-button.dont-focus-block[style="color: rgb(255, 255, 255); background: rgb(220, 53, 69);"],
+button.bp3-button.dont-focus-block[style="color: rgb(33, 37, 41); background: rgb(255, 193, 7);"]
+{
+    background: var(--background) !important;
+    color: var(--body-text) !important;
+}
+  
+div[style*="background: rgb(255, 243, 205);"] {
+    background: var(--icons) !important;
+    color: var(--body-text) !important;
+    opacity: .8;
+    border-radius: 8px;
+}
+  
+button.bp3-button.dont-focus-block[style="color: rgb(255, 255, 255); background: rgb(220, 53, 69);"]:hover
+{
+    background: var(--icons) !important;
+}
+
+button.bp3-button.dont-focus-block[style="color: rgb(33, 37, 41); background: rgb(255, 193, 7);"]:hover {
+    background: var(--icons-hover) !important;
+}
