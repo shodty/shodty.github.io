@@ -968,7 +968,7 @@ span[style*="color: rgb(14, 90, 138);"] {
 /* ROAM BREADCRUMBS STYLING */
 
 .roam-topbar .bp3-popover-wrapper, .rm-find-or-create-wrapper {
-    background: var(--sidebar-background);
+    /*background: var(--sidebar-background);*/
     z-index: 10;
   }
   
