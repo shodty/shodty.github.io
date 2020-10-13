@@ -767,8 +767,7 @@ span[data-link-title="TODO"] .rm-page-ref {
 
 .dont-focus-block.bp3-button.rm-pomodoro {
     background  : red !important;
-    line-height: 2;
-    width: 145px;
+    padding-right: 20px;
     color       : white !important;
   }
   
