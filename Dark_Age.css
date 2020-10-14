@@ -664,13 +664,20 @@ button[style*="padding: 4px 8px;"] {
 
 .block-ref-count-button {
     font-family: 'Inter', sans-serif !important;
-    color: var(--icons) !important;
     background: transparent  !important;
-    border: 1px solid var(--icons) !important;
     border-radius: 100px !important;
     z-index: 1000 !important;
     transition: color .3s ease, border .3s ease !important;
     opacity: 1 !important;
+}
+
+.bp3-button.bp3-minimal.bp3-small.block-ref-count-button {
+    min-height: 18px !important;
+    min-width: 18px !important;
+    padding: 0 5px 0px 4px !important;
+    border: 1px var(--block-reference-text) solid !important;
+    color: var(--block-reference-text) !important;
+    text-align: center;
 }
 
 .block-ref-count-button:hover {
@@ -1118,3 +1125,18 @@ div::-webkit-scrollbar-track {
     transition: border .5s ease;
     border          : 5px rgba(255,255,255,0.1) solid;
   }
+
+  .rm-inline-references {
+      background: transparent !important;
+  }
+
+  .bp3-button.bp3-small, .bp3-small .bp3-button {
+    min-height: 14px !important;
+    min-width: 14px !important;
+    padding: 0 5px !important;
+}
+
+.bp3-button.bp3-minimal.bp3-small {
+    border: 1px var(--block-reference-text) solid !important;
+    color: var(--block-reference-text) !important;
+}
