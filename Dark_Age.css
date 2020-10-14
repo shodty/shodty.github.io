@@ -25,6 +25,7 @@
     --bullets: #394b59;                 /* bullet color */
     --closed-bullets: #FFFFFF7C;        /* closed bullet color */
     --references: #A3B47D;              /* reference underline color */
+    --reference-border: 0px;      		  /* border around reference number indicator */
     --block-reference-text: #A3B47D;    /* block reference color */
     --namespaces: #1CD247;              /* Namespace/color (win: ctrl+c ctrl+L) or (mac: cmd+c cmd+L) */
     --all-pages-mentions: #F79A18;      /* mentions pill on ALl Pages */
@@ -675,18 +676,20 @@ button[style*="padding: 4px 8px;"] {
     min-height: 18px !important;
     min-width: 18px !important;
     padding: 0 5px 0px 4px !important;
-    margin-left: 150%;
-    border: 1px var(--block-reference-text) solid !important;
+    margin-left: 50% !important;
+    border: var(--reference-border) var(--block-reference-text) solid !important;
     color: var(--block-reference-text) !important;
     text-align: center;
+  	font-weight: bold;
+    z-index: 9999;
 }
 
-.block-ref-count-button:hover {
+.bp3-button.bp3-minimal.bp3-small.block-ref-count-button:hover {
     color: var(--icons-hover) !important;
     background: transparent !important;
-    border: 1px solid var(--icons-hover) !important;
+    border: var(--reference-border) solid var(--icons-hover) !important;
     border-radius: 100px !important;
-    z-index: 1000 !important;
+    z-index: 9999 !important;
     transition: color .3s ease,  border .3s ease !important;
 }
 
