@@ -675,6 +675,7 @@ button[style*="padding: 4px 8px;"] {
     min-height: 18px !important;
     min-width: 18px !important;
     padding: 0 5px 0px 4px !important;
+    margin-left: 150%;
     border: 1px var(--block-reference-text) solid !important;
     color: var(--block-reference-text) !important;
     text-align: center;
@@ -1129,14 +1130,3 @@ div::-webkit-scrollbar-track {
   .rm-inline-references {
       background: transparent !important;
   }
-
-  .bp3-button.bp3-small, .bp3-small .bp3-button {
-    min-height: 14px !important;
-    min-width: 14px !important;
-    padding: 0 5px !important;
-}
-
-.bp3-button.bp3-minimal.bp3-small {
-    border: 1px var(--block-reference-text) solid !important;
-    color: var(--block-reference-text) !important;
-}
