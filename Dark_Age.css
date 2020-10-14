@@ -25,7 +25,8 @@
     --bullets: #394b59;                 /* bullet color */
     --closed-bullets: #FFFFFF7C;        /* closed bullet color */
     --references: #A3B47D;              /* reference underline color */
-    --reference-border: 0px;      		  /* border around reference number indicator */
+    --reference-underline: 0px;			  /* underline beneath reference. 0px = no underline */
+    --reference-border: 0px;      		  /* border around reference number indicator. 0px = no border */
     --block-reference-text: #A3B47D;    /* block reference color */
     --namespaces: #1CD247;              /* Namespace/color (win: ctrl+c ctrl+L) or (mac: cmd+c cmd+L) */
     --all-pages-mentions: #F79A18;      /* mentions pill on ALl Pages */
@@ -335,15 +336,15 @@ strong {
     background-color: transparent !important;
     color: var(--block-reference-text) !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid var(--block-reference-text);
-    
+    border-bottom: var(--reference-underline) solid var(--block-reference-text);
 }
 
-.rm-block-ref:hover {
+
+.roam-block .rm-block-ref:hover {
     background-color: transparent !important;
     color: var(--links-hover) !important;
     transition: color .3s ease, border .3s ease;
-    border-bottom: 1px solid var(--block-reference-text);
+    border-bottom: var(--reference-underline) solid var(--links-hover);
 }
 
 /* Namespace text color [[roam/css]] when using CTRL+C CTRL+L || CMD+C CMD+L */
