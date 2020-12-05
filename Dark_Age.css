@@ -450,6 +450,10 @@ code {
     color: #dbba96;
 }
 
+.CodeMirror .CodeMirror-code pre {
+    text-align: left;
+}
+
 .CodeMirror div.CodeMirror-cursor {
     border-left: 1px solid #089daf;
 }
