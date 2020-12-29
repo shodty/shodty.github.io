@@ -193,14 +193,17 @@ h1 {
 
 .rm-level1, .rm-heading-level-1 > .rm-block__self .rm-block__input {
     font-size: var(--h1-font-size) !important;
+    color: var(--headings);
 }
 
 .rm-level2, .rm-heading-level-2 > .rm-block__self .rm-block__input {
     font-size: var(--h2-font-size) !important;
+    color: var(--headings);
 }
 
 .rm-level3, .rm-heading-level-3 > .rm-block__self .rm-block__input {
     font-size: var(--h3-font-size) !important;
+    color: var(--headings);
 }
 
 /* sidebar h1 */
