@@ -1,0 +1,284 @@
+body {
+  margin: 0;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size: x-small;
+  font-weight: 100;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: rgb(7, 7, 7);
+  color: white;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.sign-in {
+  margin-top: 1.5%;
+}
+
+.sign-out {
+  font-size: 10px;
+}
+input {
+  display: block;
+  background-color: #495c55 !important;
+  color: white !important;
+  margin-bottom: 5px;
+  border: 0px solid #555;
+}
+
+input:focus, input:-webkit-autofill:focus, input:-webkit-autofill:active {
+  background-color: #495c55;
+  -webkit-box-shadow: 0 0 0 30px #468a71 inset !important;
+  border: 0px solid #555;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover  {
+    -webkit-box-shadow: 0 0 0 30px #495c55 inset !important;
+    border: 0px solid #555;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: white !important;
+}
+button {
+  background: rgb(7, 7, 7);
+  color: white;
+}
+
+.padleft, #root {
+  padding-left: 2%;
+}
+
+
+a {
+  color: white;
+}
+
+a:visited {
+  color: tan;
+}
+
+#header {
+  text-align: center;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 1%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+#header h1 {
+  letter-spacing: 8px;
+  line-height: 1;
+}
+
+.App-logo {
+  width: 40px;
+  margin: 1%;
+}
+
+.signed-in {
+  position: absolute;
+  text-align: right;
+  right: 1%;
+  top: .5%;
+  font-size: 10px;
+  line-height:  .5;
+}
+
+.clock, .build-date {
+  position: absolute;
+  text-align: left;
+  left: 1%;
+  top: .5%;
+  font-size: 10px;
+}
+
+.build-date {
+  top: 2.5%;
+}
+
+.color-info {
+  color: rgb(94, 243, 94);
+}
+
+.build-date .color-info {
+  color: rgb(199, 228, 93);
+}
+
+
+.post {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: .5% 0 .5% 0%;
+  width: 90%;
+  font-size: 12px;
+}
+
+#main {
+  flex-direction: row;
+  vertical-align:top;
+}
+
+.posts, .addPost {
+  display: inline-block;
+  vertical-align:top;
+  width: 50%;
+}
+
+textarea {
+  width: 90%;
+  height: 200px;
+  background: rgb(7, 7, 7);
+  color: white;
+  margin-bottom: 1%;
+  display: block;
+  overflow: hidden;
+  resize: vertical;
+  min-height: 40px;
+  line-height: 20px;
+  padding: 10px 0 0 12px;
+}
+
+@media(max-width: 767px) {
+  .posts, .addPost {
+    padding-left: 3%;
+    display: inline-block;
+    vertical-align:top;
+    width: 100%;
+  }
+  .posts {
+    height:76vh;
+    overflow:auto;
+  }
+  textarea, .addPost{
+    height: 5vh;
+  }
+}
+
+@media(min-width: 768px) {
+  .addPost, .sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 2%;
+  }
+}
+.post-time {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: rgba(255, 255, 255, 0.05);
+  font-size: 9px;
+  text-align: right;
+  transition: color .6s ease;
+}
+
+.post-time:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+
+.p_wrap {
+  position: relative;
+  white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+pre {
+  white-space: pre-wrap;       /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.shodty {
+  color: rgb(230, 209, 92);
+}
+
+.leitmotif {
+  color: rgb(37, 98, 177);
+}
+
+.nunnink {
+  color: rgb(37, 177, 119);
+}
+
+.death {
+  color: rgb(214, 65, 65);
+}
+
+.nmsalvatore {
+  color:rgb(228, 138, 213);
+}
+
+.Lucre {
+  color: #337e7e;
+}
+
+.pad-top {
+  padding-top: 3%;
+}
+
+.cursor {
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.cursor:hover {
+  text-decoration: underline;
+}
+
+.form-control {
+  width: 100px;
+  font-size: 10px;
+}
+
+.color-box {
+  position: fixed;
+  bottom: 1%;
+  right: 2%;
+}
+
+.huge {
+  font-size: 40px;
+  line-height: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0; 
+  padding-left: 0;
+}
+
+li::before {
+  content: "+ ";
+}
+
+
+@media(max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important
+  }
+}
+
+@media(min-width: 768px) {
+  .hide-on-desktop {
+    display: none !important;
+  }
+}
+
+.show-on-ipad {
+  @media(min-width: 1140px) {
+    display: none !important;
+  }
+}
+
+.hide-on-ipad {
+  @media(max-width: 1139px) {
+    display: none !important;
+  }
+}
