@@ -1,4 +1,9 @@
 initiliaze();
+timedStart();
+
+function timedStart() {
+    setTimeout(createDivs, 550)
+}
 
 function initiliaze() { /*removes any residual instances of breadcrumb feature*/
     window.removeEventListener("hashchange", timedFunction);
@@ -9,35 +14,37 @@ function initiliaze() { /*removes any residual instances of breadcrumb feature*/
     if(btn != null) { btn.parentNode.removeChild(btn); }
 }
 
-//#recentLinks div to hold breadcrumbs
-var breadCrumbDiv = document.createElement('div'); // #recentLinks div to hold breadcrumbs
-breadCrumbDiv.id = 'recentLinks';
-breadCrumbDiv.style.position = 'absolute';
-breadCrumbDiv.style.left = '228px';
-breadCrumbDiv.style.height = '45px';
-breadCrumbDiv.style.padding = '10px';
-var topBarDiv = document.getElementsByClassName("roam-topbar")[0];
-topBarDiv.appendChild(breadCrumbDiv); //put it in the topbar div for z-index purposes
-window.addEventListener("hashchange", timedFunction);
 
-//div + button to stop/start listener, & show/hide breadcrumbs
-var toggleDiv = document.createElement('div');
-toggleDiv.id = 'closeCrumbs';
-toggleDiv.style.position = 'absolute';
-toggleDiv.style.left = '212px';
-toggleDiv.style.height = '45px';
-toggleDiv.style.padding = '10px';
-topBarDiv.appendChild(toggleDiv);
+function createDivs() {
+  //#recentLinks div to hold breadcrumbs
+  var breadCrumbDiv = document.createElement('div'); // #recentLinks div to hold breadcrumbs
+  breadCrumbDiv.id = 'recentLinks';
+  breadCrumbDiv.style.position = 'absolute';
+  breadCrumbDiv.style.left = '86px';
+  breadCrumbDiv.style.height = '45px';
+  breadCrumbDiv.style.padding = '10px';
+  var topBarDiv = document.getElementsByClassName("rm-topbar")[0];
+  topBarDiv.appendChild(breadCrumbDiv); //put it in the topbar div for z-index purposes
+  window.addEventListener("hashchange", timedFunction);
 
-var toggleButton = document.createElement("button");
-toggleButton.id = 'buttonLayer';
-toggleButton.style.border = '0';
-toggleButton.style.color = 'green';
-toggleButton.style.fontSize = '24px';
-toggleButton.innerHTML = "‣";
-toggleDiv.appendChild(toggleButton);
-toggleButton.onclick = turnOnOff;
+  //div + button to stop/start listener, & show/hide breadcrumbs
+  var toggleDiv = document.createElement('div');
+  toggleDiv.id = 'closeCrumbs';
+  toggleDiv.style.position = 'absolute';
+  toggleDiv.style.left = '30px';
+  toggleDiv.style.height = '45px';
+  toggleDiv.style.padding = '10px';
+  topBarDiv.appendChild(toggleDiv);
 
+  var toggleButton = document.createElement("button");
+  toggleButton.id = 'buttonLayer';
+  toggleButton.style.border = '0';
+  toggleButton.style.color = 'green';
+  toggleButton.style.fontSize = '24px';
+  toggleButton.innerHTML = "‣";
+  toggleDiv.appendChild(toggleButton);
+  toggleButton.onclick = turnOnOff;
+}
 var urlArray = [];
 var linksArray = [];
 var onOff = true;
@@ -76,14 +83,14 @@ function addPageToRecent() {
 
 function  addLinkElement(pageUrl) {
     var parent = document.getElementsByClassName("rm-title-display")[0]; //snags the page title
-    if(pageUrl == 'https://roamresearch.com/#/app/shodty') { //checks if they are on daily notes page
+    if(pageUrl == 'https://roamresearch.com/#/app/shodty') {
         createLinkElement(parent, pageUrl, 0);
     }
-    if(parent != null) {  // gets page name if not on daily pages
+    if(parent != null) {
         var children = parent.children[0];
         createLinkElement(children, pageUrl, 1);
     }
-    else { // checks if the user is zoomed into a bullet
+    else {
         var parent = document.getElementsByClassName("zoom-path-view")[0];
         var children = parent.children[0].children[0].children[0];
         createLinkElement(children, pageUrl, 2);
@@ -110,13 +117,13 @@ function createLinkElement(children, pageUrl, urlCase) {
 window.addEventListener ("keyup", hotKeyEvent);
 
 function hotKeyEvent(zEvent) {
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "1") { clickLink(1); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "2") { clickLink(2); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "3") { clickLink(3); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "4") { clickLink(4); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "5") { clickLink(5); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "6") { clickLink(6); }
-    if (zEvent.altKey || zEvent.ctrlKey  &&  zEvent.key === "7") { clickLink(7); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "1") { clickLink(1); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "2") { clickLink(2); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "3") { clickLink(3); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "4") { clickLink(4); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "5") { clickLink(5); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "6") { clickLink(6); }
+    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "7") { clickLink(7); }
 }
 
 function clickLink(n) {
