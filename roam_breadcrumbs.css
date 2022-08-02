@@ -1,44 +1,35 @@
-.recentLink {
-  padding: 0 10px;
-  color: rgba(255, 255, 255, 0.55) !important;
-
-}
-
-#buttonLayer {
-  border: 0;
-  color: green;
-  font-size: 24px;
-}
-
-#recentLinks, #closeCrumbs {
+#recentLinks {
   position: absolute;
-  left: 228px;
-  top: 1px;
-  width: auto;
-  height: 45px;
+  left: 86px;
+    height: 40px;
+    width: 62%;
   padding: 10px;
-  margin-right: 80px;
+  display: flex;
+    overflow-x: scroll;
 }
 
 #closeCrumbs {
-  left: 212px;
-  top: 0px;
+  position: absolute;
+    left: 60px;
+    height: 40px;
+    padding: 10px;
 }
 
-.rm-find-or-create-wrapper {
-  z-index: 10;
+#toggleButton {
+  border: 0;
+  color: green;
+  font-size: 24px;
+  background: transparent;
 }
 
-.rm-saving-icon .rm-saving-inner-icon {
-  opacity: 1;
-  z-index: 10;
+.recentLink {
+  padding: 0 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  max-width: 100%;
 }
 
-.roam-topbar .bp3-popover-wrapper {
-  background: #1e1e1e;
-  z-index: 10;
-}
-
-.bp3-input {
-  background: #292929 !important; /* search bar background color */
+.linkNumber {
+  color: #0087FF;
+  padding-right: 3px;
 }

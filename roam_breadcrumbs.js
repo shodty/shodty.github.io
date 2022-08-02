@@ -1,147 +1,171 @@
-initiliaze();
-timedStart();
+initialize();
+
+var graphName = window.roamAlphaAPI.graph.name;
+var recentLinksDiv, toggleButton, toggleDiv, topBarDiv;
+var urlArray = [];
+var linksArray = [];
+var crumbsOn = true;
 
 function timedStart() {
     setTimeout(createDivs, 550)
 }
 
-function initiliaze() { /*removes any residual instances of breadcrumb feature*/
-    window.removeEventListener("hashchange", timedFunction);
-    document.removeEventListener("keydown", hotKeyEvent);
+/*initialize function removes any residual instances of breadcrumb feature*/
+function initialize() {
+    window.removeEventListener("keyup", hotKeyEvent);
     var elem = document.querySelector('#recentLinks');
     var btn = document.querySelector('#closeCrumbs');
   	if(elem != null) { elem.parentNode.removeChild(elem); }
     if(btn != null) { btn.parentNode.removeChild(btn); }
+    window.addEventListener("keyup", hotKeyEvent);
+    window.onhashchange = e => setTimeout(addPageToRecent, 250);
+    timedStart();
 }
-
 
 function createDivs() {
-  //#recentLinks div to hold breadcrumbs
-  var breadCrumbDiv = document.createElement('div'); // #recentLinks div to hold breadcrumbs
-  breadCrumbDiv.id = 'recentLinks';
-  breadCrumbDiv.style.position = 'absolute';
-  breadCrumbDiv.style.left = '86px';
-  breadCrumbDiv.style.height = '45px';
-  breadCrumbDiv.style.padding = '10px';
-  var topBarDiv = document.getElementsByClassName("rm-topbar")[0];
-  topBarDiv.appendChild(breadCrumbDiv); //put it in the topbar div for z-index purposes
-  window.addEventListener("hashchange", timedFunction);
+    console.log('Roam Breadcrumbs by ✹shodty initialized.')
+    //#recentLinks div to hold breadcrumbs
+    recentLinksDiv = document.createElement('div');
+    recentLinksDiv.id = 'recentLinks';
+    recentLinksDiv.addEventListener("wheel", (evt) => {
+        evt.preventDefault();
+        recentLinksDiv.scrollLeft += evt.deltaY;
+    });
+    topBarDiv = document.getElementsByClassName("rm-topbar")[0];
+    topBarDiv.appendChild(recentLinksDiv); //put it in the topbar div for z-index purposes
+    //div + button to stop/start listener, & show/hide breadcrumbs
+    toggleDiv = document.createElement('div');
+    toggleDiv.id = 'closeCrumbs';
+    topBarDiv.appendChild(toggleDiv);
 
-  //div + button to stop/start listener, & show/hide breadcrumbs
-  var toggleDiv = document.createElement('div');
-  toggleDiv.id = 'closeCrumbs';
-  toggleDiv.style.position = 'absolute';
-  toggleDiv.style.left = '30px';
-  toggleDiv.style.height = '45px';
-  toggleDiv.style.padding = '10px';
-  topBarDiv.appendChild(toggleDiv);
-
-  var toggleButton = document.createElement("button");
-  toggleButton.id = 'buttonLayer';
-  toggleButton.style.border = '0';
-  toggleButton.style.color = 'green';
-  toggleButton.style.fontSize = '24px';
-  toggleButton.innerHTML = "‣";
-  toggleDiv.appendChild(toggleButton);
-  toggleButton.onclick = turnOnOff;
+    toggleButton = document.createElement("button");
+    toggleButton.id = 'toggleButton';
+    toggleButton.innerHTML = "‣";
+    toggleDiv.appendChild(toggleButton);
+    toggleButton.onclick = toggleCrumbs;
+    addPageToRecent();
 }
-var urlArray = [];
-var linksArray = [];
-var onOff = true;
-var n = 0;
+
 //this function flips the toggle switch, then shows/hides the breadcrumbs and adds/removes listener
-function turnOnOff() {
-    onOff = !onOff;
-    if (!onOff) {
-        breadCrumbDiv.style.display = 'none';
-        toggleButton.style.color = 'grey';
-      	window.removeEventListener("hashchange", timedFunction);
+function toggleCrumbs() {
+    crumbsOn = !crumbsOn;
+    if (!crumbsOn) {
+        recentLinksDiv.style.display = 'none';
+        toggleButton.style.color = 'gray';
     } else {
-        breadCrumbDiv.style.display = 'block';
+        recentLinksDiv.style.display = 'block';
         toggleButton.style.color = 'green';
-      	window.addEventListener("hashchange", timedFunction);
     }
 }
 
-//had to delay function for adding breadcrumbs to give page time to load
-function timedFunction() {
-    setTimeout(addPageToRecent, 150)
-}
-
-function addPageToRecent() {
-    var pageUrl = window.location.href; //snags the url for said page
-    if (urlArray.slice(0, 8).includes(pageUrl) == false) { //checks if the link already exists in the last 5 links
-        addLinkElement(pageUrl);
-    }
-    else {
-        var index = urlArray.indexOf(pageUrl);
-        urlArray.splice(index, 1);
-        linksArray.splice(index, 1);
-        addLinkElement(pageUrl);
+async function addPageToRecent() {
+    if (crumbsOn) {
+        var pageUrl = '/'; //daily notes page
+        if (!checkIfDailyNotes()) {
+            pageUrl = await getUid(); //page/block uid
+        }
+        if (urlArray.slice(0, 8).includes(pageUrl) == false) { //checks if the link already exists in the last 5 links
+            addLinkElement(pageUrl);
+        }
+        else {
+            var index = urlArray.indexOf(pageUrl);
+            urlArray.splice(index, 1);
+            linksArray.splice(index, 1);
+            addLinkElement(pageUrl);
+        }
     }
 }
 
 function  addLinkElement(pageUrl) {
-    var parent = document.getElementsByClassName("rm-title-display")[0]; //snags the page title
-    if(pageUrl == 'https://roamresearch.com/#/app/shodty') {
-        createLinkElement(parent, pageUrl, 0);
+    var blockType = checkBlockType(pageUrl).type;
+    if (checkIfDailyNotes()) {
+        createLinkElement(pageUrl, 0);
     }
-    if(parent != null) {
-        var children = parent.children[0];
-        createLinkElement(children, pageUrl, 1);
+    else if (blockType == 'page') {
+        createLinkElement(pageUrl, 1);
+    }
+    else if (blockType == 'block') {
+        createLinkElement(pageUrl, 2);
+    }
+}
+
+function createLinkElement(pageUrl, urlCase) {
+    var innerChild, linkElement;
+    if (urlCase == 0) { var innerChild = "<span style='color: #FF5E00;'>✹</span> Daily Notes" }
+    else if (urlCase == 1) { innerChild = getPageName(pageUrl).substring(0, 25) }
+    else if (urlCase == 2) { innerChild = "<span style='color: #0D9BDB;'>🞇</span> " + getPageName(pageUrl).substring(0, 20) }
+    //add <span> element to array, maximum 25 chars, increase substring size if you wish
+    if (!checkIfDailyNotes()) {
+        linkElement = "<a id='" + pageUrl + "'href='javascript:;' class='recentLink' onclick='openLink(event);return false;'>" + innerChild + "</a>";
     }
     else {
-        var parent = document.getElementsByClassName("zoom-path-view")[0];
-        var children = parent.children[0].children[0].children[0];
-        createLinkElement(children, pageUrl, 2);
+        linkElement = "<a id='daily-notes' 'href='javascript:;' class='recentLink' onclick='openDaily();return false;'>" + innerChild + "</a>";
     }
-}
-
-function createLinkElement(children, pageUrl, urlCase) {
-    var lastNine = pageUrl.substr(pageUrl.length - 9);
-    if(urlCase == 0) {var innerChild = "<span style='color: #FF5E00;'>✹</span> Daily Notes" }
-    else if(urlCase == 1) { var innerChild = children.innerHTML.substring(0, 25) }
-    else if(urlCase == 2) { var innerChild =  "<span style='color: #0D9BDB;'>🞇</span> " + children.innerHTML.substring(0, 20) }
-    var linkElement = "<a id='" + lastNine + "' href='" + pageUrl + "' class='recentLink' style='padding: 0 10px;'>" + innerChild + "</a>"; //adds <a> element to array, maximum 25 chars, increase substring size if you wish
-    urlArray.unshift(pageUrl);
+    urlArray.unshift(pageUrl);  
     linksArray.unshift(linkElement);
-    linksArray = linksArray.slice(0, 8); //reduces the array to to 5 link max, in crease if you wish
-    breadCrumbDiv.innerHTML = linksArray.slice(1, 8).join("‣"); //puts the <a> array into the breadCrumbDiv
+    //reduces the array to to 15 link max, in crease if you wish
+    linksArray = linksArray.slice(0, 15);
+    //puts the <a> array into the recentLinksDiv
+    recentLinksDiv.innerHTML = linksArray.slice(0, 15).join("‣"); 
     var linkElements = document.getElementsByClassName("recentLink");
     for(i=0; i<linkElements.length; i++){
-        var linkNumber = "<span style='color: #0087FF; padding-right: 3px;' class='linkNumber'>" + (i+1).toString() + "</span>";
-    linkElements[i].innerHTML = linkNumber + linkElements[i].innerHTML;
+        var linkNumber = "<span class='linkNumber'>" + i.toString() + "</span>";
+        linkElements[i].innerHTML = linkNumber + linkElements[i].innerHTML;
     }
 }
 
-window.addEventListener ("keyup", hotKeyEvent);
+function openLink(ev) {
+    //open link in right sidebar using Roam API if user ctrl+clicks link
+    if (ev.ctrlKey == true) {
+        window.roamAlphaAPI.ui.rightSidebar.addWindow({ window: { type: 'outline', 'block-uid': ev.srcElement.id } });
+    }
+    //open link in main window using Roam API if user clicks link
+    else {
+        window.roamAlphaAPI.ui.mainWindow.openPage({ page: { uid: ev.srcElement.id } });
+    }
+}
+
+async function openDaily() {
+    await window.roamAlphaAPI.ui.mainWindow.openDailyNotes()
+}
 
 function hotKeyEvent(zEvent) {
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "1") { clickLink(1); }
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "2") { clickLink(2); }
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "3") { clickLink(3); }
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "4") { clickLink(4); }
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "5") { clickLink(5); }
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "6") { clickLink(6); }
-    if ((zEvent.altKey || zEvent.ctrlKey)  &&  zEvent.key === "7") { clickLink(7); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "1") { goToLink(1); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "2") { goToLink(2); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "3") { goToLink(3); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "4") { goToLink(4); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "5") { goToLink(5); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "6") { goToLink(6); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "7") { goToLink(7); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "8") { goToLink(8); }
+    if ((zEvent.altKey || zEvent.ctrlKey) && zEvent.key === "9") { goToLink(9); }
 }
 
-function clickLink(n) {
-    var linkToClick = linksArray[n];
-    if(linkToClick != null) {
-        var linkId = linkToClick.substring(7, 16)
-        var someLink = document.getElementById(linkId);
-        simulateClick(someLink);
-    }
+async function goToLink(n) {
+    var linkToClick = urlArray[n];
+    if (linkToClick == '/') { await window.roamAlphaAPI.ui.mainWindow.openDailyNotes(); }
+    else if (linkToClick != null) { window.roamAlphaAPI.ui.mainWindow.openPage({ page: { uid: urlArray[n] } }); }
 }
 
-var simulateClick = function (elem) {
-	// Create our event (with options)
-	var evt = new MouseEvent('click', {
-		bubbles: true,
-		cancelable: true,
-		view: window
-	});
-	// If cancelled, don't dispatch our event
-	var canceled = !elem.dispatchEvent(evt);
-};
+async function getUid() {
+    return await window.roamAlphaAPI.ui.mainWindow.getOpenPageOrBlockUid();
+}
+
+function getPageName(uid) {
+    var name;
+    var block = checkBlockType(uid);
+    if (block.type == 'page') { name = block.block[":node/title"]; }
+    else if (block.type == 'block') { name = block.block[":block/string"] }
+    return name;
+}
+
+function checkIfDailyNotes() {
+    return (graphName == window.location.href.substring(window.location.href.length - graphName.length));
+}
+
+function checkBlockType(uid) {
+    var block = window.roamAlphaAPI.data.pull("[*]", [":block/uid", uid]);
+    if (block.hasOwnProperty(":node/title")) { return { type: 'page', block: block } }
+    else if (block.hasOwnProperty(":block/string")) { return { type: 'block', block: block } }
+    else return 'shodty error'
+}
